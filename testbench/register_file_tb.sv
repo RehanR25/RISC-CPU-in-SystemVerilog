@@ -35,14 +35,17 @@ module register_file_tb;
 
         // 3 -  Ensuring that 2 independent writes and reads are correct and independent
 
-        write_enable = 1; write_address = 2'b10 ; write_data = 4'b1000
+        write_enable = 1; write_address = 2'b10 ; write_data = 4'b1000 ; 
         @(posedge clock) ; 
         # 1 ; 
-        if (regs[write_address])
-
-
-
-
+        # 10 ;  
+        write_enable = 1; write_address = 2'b11 ; write_data = 4'b1111 ;
+        @(posedge clock) ; 
+        # 1 ; 
+        read_address1 = 2'b10 ; read_address2 = 2'b11 ; 
+        if (regs[read_address1] == 4'b1000 && regs[read_address2] == 4'b1111) $display ("PASS")
+        else $display ("FAIL")
+        
     end
 
 
