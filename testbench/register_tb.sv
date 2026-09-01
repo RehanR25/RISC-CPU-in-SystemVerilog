@@ -9,10 +9,6 @@ module register_tb;
     always #5 clock = ~clock ; // every 5 time units, flip it 
 
     initial begin 
-        // set data and reset
-        // wait for set amount of time units 
-        // check if stored value match what you expect
-        // repeat for 3 combinations 
 
         // The clock needs to keep toggling continuously and indenpendently, 
         // in parallel with whatever the initial value block is doing 

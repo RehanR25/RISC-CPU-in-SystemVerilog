@@ -1,17 +1,27 @@
 module register_file(
     input wire clock, write_enable ,
     input wire [1:0] read_address1, read_address2, write_address , 
-    input wire [3:0] write_data ; 
-    output wire [3:0] register1, register2 ; 
+    input wire [3:0] write_data,  
+    output reg [3:0] register1, register2  // changed from wire to reg 
+
+    // Continuous assign statemnets reading from an indexed memory 
+    // array regs[read_address1] with a variable index can behave 
+    // unreliably so more robost way to write memory reads is with an 
+    // always @(*) block instead of assign 
 );
     reg [3:0] regs [0:3] ; // Internal storage : 4 registers, 4 bits each 
 
-    assign register1 = regs[read_address1] ;  // Assign register 1 to have data of address 1
-    assign register2 = regs[read_address2] ;  // Assign register 2 to have data of address 2
+    always @(*) begin 
+        register1 = regs[read_address1] ; // Write data of address1 to register 1
+        register2 = regs[read_address2] ; // Write data of address2 to register 2
+
+        // $display("READ: addr1=%b regs[addr1]=%b" , read_address1, regs[read_address1]) ; this is an message to check if registers have data in them 
+    end 
 
     always @(posedge clock) begin   
         if (write_enable) begin 
             regs[write_address] <= write_data ; // Writes write_data into write_address
+            // $display("Write : addr=%b data=%b", write_address, write_data) ;  this is a message to check if data has been written
         end
     end 
 endmodule
