@@ -15,4 +15,10 @@ module data_memory(
         end 
     end
 
+    initial begin 
+        // hardcode some test values directly into data memory
+        memory[5] = 4'b1010 ; 
+
+    end 
+
 endmodule

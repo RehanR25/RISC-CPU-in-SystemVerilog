@@ -24,4 +24,15 @@ module register_file(
             // $display("Write : addr=%b data=%b", write_address, write_data) ;  this is a message to check if data has been written
         end
     end 
+
+    initial begin
+        regs[0] = 4'b0011 ; // 3
+        regs[1] = 4'b0101 ; // 5  
+        regs[2] = 4'b0011 ; // 3
+        regs[3] = 4'b1000 ; // 8 
+
+    end 
+
+
+
 endmodule

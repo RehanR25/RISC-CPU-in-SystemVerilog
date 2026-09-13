@@ -12,7 +12,6 @@ module ripple_carry_adder(
     // Internal carries between stages
     wire c1, c2, c3 ;
 
-
     // Instantiation syntax 
     // .port name of the module being instantiated(signal from current module)
 

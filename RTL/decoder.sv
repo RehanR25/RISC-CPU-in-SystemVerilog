@@ -34,7 +34,7 @@ module decoder(
             end 
 
             3'b011: begin // B-type
-                funct = 3'b000;
+                funct = 3'b010; // it tells the ALU to compute rs1 - rs2 otherwise its always zero
                 regd  = 2'b00;
                 reg1  = instruction[12:11] ; 
                 reg2  = instruction[10:9] ; 
