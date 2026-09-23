@@ -1,0 +1,11 @@
+RTL/full_adder.sv
+RTL/ALU.sv
+RTL/CPU.sv
+RTL/data_memory.sv
+RTL/decoder.sv
+RTL/instruction_memory_edgecase.sv
+RTL/multiplexer.sv
+RTL/program_counter.sv
+RTL/register_file.sv 
+RTL/ripple_carry_adder.sv
+testbench/CPU_tb_edgecase.sv

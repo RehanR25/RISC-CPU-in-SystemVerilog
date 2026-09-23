@@ -46,8 +46,6 @@ module CPU_tb ;
         if (result != 4'b0111) $display("FAIL - OR result") ; 
         else $display("PASS - OR result") ; 
 
-
-
         // 3 - Instruction cycle (I-type) - Instruction[5]
         @(posedge clock) ; 
         # 1 ;   
@@ -66,13 +64,14 @@ module CPU_tb ;
         @(posedge clock) ;
         # 1 ;
         if (pc_out != 4'b1000) $display("FAIL - BEQ Branch") ; 
-        else $display("PASS - BEQ Branch") ; 
-
+        else $display("PASS - BEQ Branch") ;
+ 
         @(posedge clock) ;
         # 1 ;
         if (pc_out != 4'b1011) $display("FAIL - BEQ") ; 
         else $display("PASS - BEQ") ;
-
+        
+        // 6 - Instruction cycle (J-type) - Instruction 
         @(posedge clock); 
         # 1 ;
         if (pc_out != 4'b1100) $display("FAIL - JUMP") ; 

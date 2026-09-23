@@ -50,7 +50,7 @@ module cpu(
     // There is not conflict for write_data nad read_data since write_enable prevents anything from being written, 
     // and read_data is only being used for the mux which is selected by the operand so its harmless 
 
-    // for S-type, no multiplexer needed since value is stored in
+    // for S-type, no multiplexer needed since value is stored in 
 
     // B-type and J-type
     ripple_carry_adder j_b_addr_calc (.num1(pc_out), .num2(immediate[3:0]), .cin(1'b0), .sum(pc_in), .cout(load_cout)) ;
